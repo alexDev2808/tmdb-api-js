@@ -1,0 +1,11 @@
+{
+  "name": "tmdb-api-js",
+  "version": "1.0.0",
+  "description": "Consumo de API de TMDB para crear landing sobre peliculas",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "J. Alexis TH",
+  "license": "MIT"
+}
