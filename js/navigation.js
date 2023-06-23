@@ -12,6 +12,15 @@ arrowBtn.addEventListener('click', () => {
 window.addEventListener('DOMContentLoaded', navigator, false)
 window.addEventListener('hashchange', navigator, false);
 
+
+function smoothscroll(){
+    const currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    if (currentScroll > 0) {
+         window.requestAnimationFrame(smoothscroll);
+         window.scrollTo (0,currentScroll - (currentScroll/5));
+    }
+};
+
 function navigator() {
     
     console.log({location});
@@ -28,7 +37,10 @@ function navigator() {
         homePage();
     }
 
-    location.hash
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+
+    smoothscroll();
 }
 
 
@@ -72,7 +84,7 @@ function categoriesPage() {
 
     const [categoryId, categoryName] = categoryData.split('-');
 
-    headerCategoryTitle.innerHTML = categoryName;
+    headerCategoryTitle.innerHTML = decodeURIComponent(categoryName);
 
     getMoviesByCategory(categoryId);
 }
